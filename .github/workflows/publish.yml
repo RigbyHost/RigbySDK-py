@@ -23,14 +23,12 @@ jobs:
 
       - name: Install build tooling
         run: python -m pip install --upgrade pip build
-        working-directory: rigbysdk-py
 
       - name: Build package
         run: python -m build .
-        working-directory: rigbysdk-py
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_TOKEN }}
-          packages-dir: rigbysdk-py/dist
+          packages-dir: dist
